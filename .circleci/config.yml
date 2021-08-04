@@ -27,6 +27,6 @@ workflows:
   welcome:
     # Run the welcome/run job in its own container
     jobs:
-      - persist_to_workspace
+      - save_hello_world_output
       - print_output_file:
-          requires: [persist_to_workspace]
+          requires: [save_hello_world_output]
