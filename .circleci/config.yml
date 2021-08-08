@@ -15,9 +15,12 @@ jobs:
       -  run:
            name: Install dependencies
            command: |
-             cd /root/
-             ls > cattxt.txt
-             cat cattxt.txt
+             apk add --update ansible
+             
+      -  run:
+           name: Install dependencies
+           command: |
+             ansible-playbook -i inventory.txt playbook.yml
       
       
       
