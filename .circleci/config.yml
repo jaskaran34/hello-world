@@ -15,9 +15,10 @@ jobs:
       -  run:
            name: Install dependencies
            command: |
-             cd /.circleci/
-             ls > newtxt.txt
-             cat newtxt.txt
+             ls > cattxt.txt
+             pwd > cat.txt
+             cat cattxt.txt
+             cat cat.txt
       
       
          
