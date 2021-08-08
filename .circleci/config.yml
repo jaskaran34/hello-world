@@ -16,7 +16,7 @@ jobs:
            name: Configure server
            command: |
              ls > newfile.txt
-             cat ls
+             cat newfile.txt
          
    
          
