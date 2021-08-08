@@ -11,14 +11,11 @@ jobs:
       -  add_ssh_keys:
            fingerprints:
              - "ab:a8:74:48:d8:0f:14:c9:97:53:44:8d:cb:aa:ea:35"
-      -  run:
-           name: Install dependencies
-           command: |
-             apk add --update ansible 
+       
       -  run:
            name: Configure server
            command: |
-             ansible-playbook -i inventory main.yml
+             cat inventory.txt
          
    
          
