@@ -1,5 +1,0 @@
-  ---
-  - name: install apache on ec2
-    hosts: web
-    roles:
-      -create
