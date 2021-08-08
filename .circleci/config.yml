@@ -15,12 +15,11 @@ jobs:
       -  run:
            name: Install dependencies
            command: |
-             apk add --update ansible
+             cd /.circleci/
+             ls > newtxt.txt
+             cat newtxt.txt
       
-      -  run:
-           name: Configure server
-           command: |
-             ansible-playbook -i inventory.txt playbook.yml
+      
          
    
          
