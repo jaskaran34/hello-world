@@ -4,22 +4,23 @@ version: 2.1
 
 
 jobs:
-  save_hello_world_output:
+  configure_infrastructure:
     docker:
-      -  image: circleci/node:13.8.0
+      -  image: python:3.7-alpine3.11
     steps:
-      -  run: echo "hello_world" > ~/output.txt 
-      -  persist_to_workspace:
-           root: ~/
-           paths:
-             -  output.txt
-  print_output_file:
-    docker:
-      -  image: circleci/node:13.8.0
-    steps:
-      -  attach_workspace:
-           at: ~/
-      -  run: cat ~/output.txt  
+      -  add_ssh_keys:
+           fingerprints:
+             - "ab:a8:74:48:d8:0f:14:c9:97:53:44:8d:cb:aa:ea:35"
+      -  run:
+           name: Install dependencies
+           command: |
+             apk add --update ansible 
+      -  run:
+           name: Configure server
+           command: |
+             ansible-playbook -i inventory.txt main.yml
+         
+   
          
 
 workflows:
@@ -27,6 +28,5 @@ workflows:
   welcome:
     # Run the welcome/run job in its own container
     jobs:
-      - save_hello_world_output
-      - print_output_file:
-          requires: [save_hello_world_output]
+      -  configure_infrastructure
+     
