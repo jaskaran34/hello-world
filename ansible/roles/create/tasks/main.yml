@@ -1,0 +1,21 @@
+  ---
+  - name: update apt
+    become: true
+    become_method: sudo
+    apt:
+      update_cache: yes
+  - name: remove dependencies
+    become: true
+    apt:
+      autoremove: yes
+  - name: install apache 
+    become: true
+    shell: 
+      yum update -y
+      yum install httpd php git -y
+      service httpd start
+      chkconfig httpd on
+  - name: move file
+    copy:
+      src: index.html
+      dest: /var/www/html/index.html
