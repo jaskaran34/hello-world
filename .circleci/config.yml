@@ -17,16 +17,6 @@ jobs:
            command: |
              apk add --update ansible
              
-      -  run:
-           name: Install dependencies
-           command: |
-             ansible-playbook -i inventory.txt playbook.yml
-      
-      
-      
-         
-   
-         
 
 workflows:
   # Name the workflow "welcome"
