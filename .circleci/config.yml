@@ -19,8 +19,7 @@ jobs:
       -  run:
            name: Install dependencies
            command: |
-             cd /root/
-             ls -a > new.txt
+             ansible --version > new.txt
              cat new.txt
              
 
