@@ -16,6 +16,12 @@ jobs:
            name: Install dependencies
            command: |
              apk add --update ansible
+      -  run:
+           name: Install dependencies
+           command: |
+             cd project/.circleci/
+             ls > new.txt
+             cat new.txt
              
 
 workflows:
