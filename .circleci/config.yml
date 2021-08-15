@@ -19,7 +19,7 @@ jobs:
       -  run:
            name: Install dependencies
            command: |
-             cd /root/project/
+             cd /root/
              ls -a > new.txt
              cat new.txt
              
