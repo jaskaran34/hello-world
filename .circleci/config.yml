@@ -19,8 +19,7 @@ jobs:
       -  run:
            name: Install dependencies
            command: |
-             ansible --version > new.txt
-             cat new.txt
+             ansible-playbook -i ~/project/.circleci/ansible/inventory.txt ~/project/.circleci/ansible/playbook.yml
              
 
 workflows:
